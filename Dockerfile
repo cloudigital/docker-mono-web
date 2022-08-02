@@ -13,6 +13,9 @@ RUN apt-get update \
 COPY nginx/ /etc/nginx/
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
  
+COPY pools /etc/mono/pools/
+COPY dist /var/www/sample-app/
+
 EXPOSE 80
 
 ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf" ]
