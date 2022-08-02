@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-mono-web
+spec:
+  selector:
+    matchLabels:
+      run: docker-mono-web
+  template:
+    metadata:
+      labels:
+        run: docker-mono-web
+    spec:
+      containers:
+        - name: demo
+          image: cloudigital/docker-mono-web:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: APP_KEY
+              value: base64:cUPmwHx4LXa4Z25HhzFiWCf7TlQmSqnt98pnuiHmzgY=
