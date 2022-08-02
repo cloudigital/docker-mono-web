@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-mono-web
+spec:
+  type: NodePort
+  selector:
+    run: docker-mono-web
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 31001
